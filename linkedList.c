@@ -26,3 +26,19 @@ struct node * free_list(struct node *list){
   }
   return list;
 }
+
+struct node * removed(struct node *front, char data){
+    struct node *nodeToRemove = front;
+    if(nodeToRemove->data = data){
+        front = front->next;
+        free(nodeToRemove);
+        return front;
+    }
+    while(nodeToRemove->next->data != data && nodeToRemove != NULL)
+        nodeToRemove = nodeToRemove->next;
+    if(nodeToRemove = NULL)
+        return front;
+    nodeToRemove->next = nodeToRemove->next->next;
+    free(nodeToRemove);
+    return front;
+}
